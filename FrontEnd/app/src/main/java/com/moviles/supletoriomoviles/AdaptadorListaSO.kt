@@ -8,7 +8,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.lista_sistemas_operativos.view.*
 
 class AdaptadorListaSO(private val listaSO : ArrayList<SistemaOperativo>, var clickListener : ClickListener
-                       ): RecyclerView.Adapter<AdaptadorListaSO.MyViewHolder>(){
+): RecyclerView.Adapter<AdaptadorListaSO.MyViewHolder>(){
     var items : ArrayList<SistemaOperativo>?= null
     var viewHolder: MyViewHolder?= null
     init {
@@ -18,12 +18,12 @@ class AdaptadorListaSO(private val listaSO : ArrayList<SistemaOperativo>, var cl
         val itemView = LayoutInflater
             .from(parent?.context)
             .inflate(R.layout.lista_sistemas_operativos,parent,false)
-            viewHolder = MyViewHolder(itemView,clickListener)
+        viewHolder = MyViewHolder(itemView,clickListener)
         return viewHolder!!
     }
 
     override fun getItemCount(): Int {
-       return this.items?.count()!!
+        return this.items?.count()!!
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

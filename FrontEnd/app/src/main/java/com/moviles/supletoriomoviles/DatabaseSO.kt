@@ -9,7 +9,7 @@ import org.json.JSONArray
 
 class DatabaseSO(){
     companion object {
-        var ip ="http://192.168.3.103:1337/Sistema_operativo"
+        var ip ="http://172.29.66.87:1337/Sistema_operativo"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 
@@ -22,6 +22,9 @@ class DatabaseSO(){
                 .responseString{ request, _, result ->
                     Log.i("http-2",request.toString())
                 }
+        }
+        fun editarSO(so: SistemaOperativo){
+
         }
 
         fun getList(): ArrayList<SistemaOperativo>{
