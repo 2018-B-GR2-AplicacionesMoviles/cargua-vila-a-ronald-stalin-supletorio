@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">supletorioMoviles</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="fecha_nacimiento">Fecha de Nacimiento</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_crear_usuario">Crear nuevo usuario</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_lista_so">Lista de sistemas operativos</string>
+    <string name="btn_crear_so">Crear sistema operativo</string>
+    <string name="jugar">Jugar</string>
+    <string name="version_api">Version Api</string>
+    <string name="peso_gigas">Peso en gigas</string>
+    <string name="instalado">Instalado</string>
+    <string name="fecha_lanzamiento">Fecha de Lanzamiento</string>
+</resources>
