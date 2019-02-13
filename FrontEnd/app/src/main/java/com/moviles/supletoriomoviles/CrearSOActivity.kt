@@ -84,7 +84,7 @@ class CrearSOActivity : AppCompatActivity() {
             DatabaseSO.insertarSO(siso)
 
             Toasty.success(this, "Datos registrados", Toast.LENGTH_LONG, true).show()
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,MenuPrincipalActivity::class.java)
             startActivity(intent)
         }
     }
