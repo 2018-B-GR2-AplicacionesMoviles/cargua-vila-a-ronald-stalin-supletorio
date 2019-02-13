@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="wrap_content"
+                                             android:orientation="vertical"
+                                             android:clickable="true"
+                                             android:id="@+id/lista_app"
+                                             android:foreground="?attr/selectableItemBackground"
+                                             android:layout_margin="5dp"
+                                             android:background="@color/colorPrimaryDark"
+                                             android:baselineAligned="false"
+                                             tools:layout_editor_absoluteY="86dp" tools:layout_editor_absoluteX="5dp">
+    <TextView
+            android:id="@+id/peso_lista_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso en Gigas"
+            android:textSize="14sp"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_margin="5dp" tools:layout_editor_absoluteX="14dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" tools:ignore="MissingConstraints"/>
+    <TextView
+            android:id="@+id/version_lista_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Versión"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/fecha_lanzamiento_lista_so" tools:layout_editor_absoluteX="16dp"
+            tools:ignore="MissingConstraints"/>
+    <TextView
+            android:id="@+id/nombre_lista_ap_lista_ap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="14sp"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/peso_lista_so" tools:layout_editor_absoluteX="16dp"
+            tools:ignore="MissingConstraints"/>
+    <TextView
+            android:id="@+id/url_lista_ap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="URL descarga"
+            android:textSize="14sp"
+            android:layout_marginTop="28dp"
+            android:textColor="@color/alert_default_text_color"
+            tools:layout_editor_absoluteX="16dp"
+            android:layout_margin="5dp" tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/costo_lista_ap" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
+    <TextView
+            android:id="@+id/fecha_lanzamiento_lista_so"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Lanzamiento"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/nombre_lista_ap_lista_ap" tools:layout_editor_absoluteX="16dp"
+            tools:ignore="MissingConstraints"/>
+
+    <TextView
+            android:id="@+id/costo_lista_ap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Costo"
+            android:textSize="14sp"
+            android:layout_marginTop="76dp"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_margin="5dp"
+            tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/version_lista_so"/>
+</android.support.constraint.ConstraintLayout>

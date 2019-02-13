@@ -1,12 +1,102 @@
 package com.moviles.supletoriomoviles
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
+import com.tapadoo.alerter.Alerter
+import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.activity_crear_so.*
 
 class EditarSOActivity : AppCompatActivity() {
 
+    lateinit var comboInstalado: Spinner;
+    var opcion: String = ""
+    var idSO: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_so)
+        val SOrecivido = intent.getParcelableExtra<SistemaOperativo>("SistemaOperativo")
+        txt_nombre_ap.setText(SOrecivido.nombre.toString())
+        txt_version_ap.setText(SOrecivido.versionApi.toString())
+        txt_fecha_lanzamiento_ap.setText(SOrecivido.fechaLanzamiento.toString())
+        txt_peso_gigas_ap.setText(SOrecivido.pesoGigas.toString())
+        idSO = SOrecivido.idSO.toInt()
+        btn_cancelar_so.setOnClickListener {
+            this.irAMain()
+        }
+        comboInstalado = findViewById(R.id.instalado_so)
+        val adapter: ArrayAdapter<CharSequence>
+        adapter = ArrayAdapter.createFromResource(this, R.array.combo_intalado, android.R.layout.simple_spinner_item)
+
+        comboInstalado.setAdapter(adapter);
+        comboInstalado.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                opcion = parent!!.getItemAtPosition(position).toString()
+                Log.i("opcion", opcion)
+                Toast.makeText(
+                    parent!!.context,
+                    "Seleccionado:"
+                            + parent.getItemAtPosition(position).toString(),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Log.i("adaptador", "${parent}")
+            }
+        }
+        btn_guardar_so.setOnClickListener {
+            this.guardarDatos()
+        }
+
+    }
+
+    fun irAMain() {
+        val intent = Intent(this, ListaSOActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun guardarDatos() {
+        if (txt_nombre_ap.text.toString().isEmpty() ||
+            txt_version_ap.text.toString().isEmpty() ||
+            txt_fecha_lanzamiento_ap.text.toString().isEmpty() ||
+            txt_peso_gigas_ap.text.toString().isEmpty()
+        ) {
+            Alerter.create(this).setTitle("Campos Vacios")
+                .setText("Completa la informacion de todos los campos")
+                .setBackgroundColorRes(R.color.error_color_material_dark)
+                .enableSwipeToDismiss()
+                .show()
+        } else {
+
+            var nombreSO = txt_nombre_ap.text.toString()
+            var versionSO = txt_version_ap.text.toString().toInt()
+            var fechaLanzamientoSO = txt_fecha_lanzamiento_ap.text.toString()
+            var pesoGigasSO = txt_peso_gigas_ap.text.toString().toDouble()
+            var instaladoSO: Boolean
+            if (opcion.equals("Si", true)) {
+                instaladoSO = true
+            } else {
+                instaladoSO = false
+            }
+
+            var siso = SistemaOperativo(idSO, nombreSO, versionSO, fechaLanzamientoSO, pesoGigasSO, instaladoSO)
+            DatabaseSO.editarSO(siso)
+
+            Toasty.success(this, "Datos registrados", Toast.LENGTH_LONG, true).show()
+            val intent = Intent(this, MenuPrincipalActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

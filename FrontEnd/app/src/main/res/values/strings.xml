@@ -16,4 +16,8 @@
     <string name="peso_gigas">Peso en gigas</string>
     <string name="instalado">Instalado</string>
     <string name="fecha_lanzamiento">Fecha de Lanzamiento</string>
+    <string name="btn_lista_ap">Lista de Aplicaciones</string>
+    <string name="btn_nueva_app">Crear nueva APP</string>
+    <string name="costo">Costo</string>
+    <string name="url_descarga">URL Descarga</string>
 </resources>

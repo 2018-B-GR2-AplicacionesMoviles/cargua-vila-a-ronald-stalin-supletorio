@@ -28,6 +28,10 @@
         </activity>
         <activity android:name=".EditarSOActivity">
         </activity>
+        <activity android:name=".ListaAPPActivity">
+        </activity>
+        <activity android:name=".CrearAplicacionActivity">
+        </activity>
     </application>
 
 </manifest>

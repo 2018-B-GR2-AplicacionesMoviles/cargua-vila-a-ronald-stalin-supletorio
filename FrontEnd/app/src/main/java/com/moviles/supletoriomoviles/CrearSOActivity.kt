@@ -12,9 +12,6 @@ import android.widget.Toast
 import com.tapadoo.alerter.Alerter
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_crear_so.*
-import kotlinx.android.synthetic.main.activity_crear_usuario.*
-import kotlinx.android.synthetic.main.activity_menu_principal.*
-import kotlin.math.log
 
 class CrearSOActivity : AppCompatActivity() {
 
@@ -59,20 +56,20 @@ class CrearSOActivity : AppCompatActivity() {
         startActivity(intent)
     }
     fun guardarDatos(){
-        if (txt_nombre_so.text.toString().isEmpty()||
-            txt_version_api_so.text.toString().isEmpty()||
-            txt_fecha_lanzamiento_so.text.toString().isEmpty()||
-            txt_peso_gigas_so.text.toString().isEmpty()){
+        if (txt_nombre_ap.text.toString().isEmpty()||
+            txt_version_ap.text.toString().isEmpty()||
+            txt_fecha_lanzamiento_ap.text.toString().isEmpty()||
+            txt_peso_gigas_ap.text.toString().isEmpty()){
             Alerter.create(this).setTitle("Campos Vacios")
                 .setText("Completa la informacion de todos los campos")
                 .setBackgroundColorRes(R.color.error_color_material_dark)
                 .enableSwipeToDismiss()
                 .show()
         }else{
-            var nombreSO = txt_nombre_so.text.toString()
-            var versionSO = txt_version_api_so.text.toString().toInt()
-            var fechaLanzamientoSO = txt_fecha_lanzamiento_so.text.toString()
-            var pesoGigasSO = txt_peso_gigas_so.text.toString().toDouble()
+            var nombreSO = txt_nombre_ap.text.toString()
+            var versionSO = txt_version_ap.text.toString().toInt()
+            var fechaLanzamientoSO = txt_fecha_lanzamiento_ap.text.toString()
+            var pesoGigasSO = txt_peso_gigas_ap.text.toString().toDouble()
             var instaladoSO : Boolean
             if (opcion.equals("Si", true)){
                 instaladoSO= true

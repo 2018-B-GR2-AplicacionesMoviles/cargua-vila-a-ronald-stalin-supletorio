@@ -2,8 +2,10 @@ package com.moviles.supletoriomoviles
 
 import android.util.Log
 import com.github.kittinunf.fuel.android.extension.responseJson
+import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.fuel.httpPut
 import com.github.kittinunf.result.Result
 import org.json.JSONArray
 
@@ -24,9 +26,21 @@ class DatabaseSO(){
                 }
         }
         fun editarSO(so: SistemaOperativo){
-
+            "${ip}/${so.idSO}".httpPut(listOf("nombre" to so.nombre,
+                "versionApi" to so.versionApi,
+                "fechaLanzamiento" to so.fechaLanzamiento,
+                "pesoGigas" to so.pesoGigas,
+                "instalado" to so.instalado))
+                .responseString{ request, _, result ->
+                    Log.i("http-2",request.toString())
+                }
         }
-
+        fun eliminar(id: Int){
+            "${ip}/${id}".httpDelete().responseString{
+                    request, response, result ->
+                Log.i("http-2",request.toString())
+            }
+        }
         fun getList(): ArrayList<SistemaOperativo>{
             val sistemasOperativos: ArrayList<SistemaOperativo> = ArrayList()
             ip.httpGet().responseJson {

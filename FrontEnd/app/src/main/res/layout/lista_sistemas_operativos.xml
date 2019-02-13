@@ -44,9 +44,8 @@
             android:layout_height="wrap_content"
             android:text="Peso en Gigas"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/fecha_lanzamiento_lista_so" android:layout_marginTop="8dp"
             tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color"/>
+            android:textColor="@color/alert_default_text_color" tools:layout_editor_absoluteY="89dp"/>
     <TextView
             android:id="@+id/instalado_lista_so"
             android:layout_width="wrap_content"

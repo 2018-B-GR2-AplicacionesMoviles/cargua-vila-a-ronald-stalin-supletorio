@@ -38,19 +38,30 @@ class ListaSOActivity : AppCompatActivity() {
                         when(item.itemId){
                             R.id.menu_editar->{
                                 val intent = Intent(this@ListaSOActivity,EditarSOActivity::class.java)
+                                intent.putExtra("SistemaOperativo",so?.get(posicion)as SistemaOperativo)
                                 startActivity(intent)
                                 Toast.makeText(this@ListaSOActivity,"Su seleccion:"+item.title, Toast.LENGTH_SHORT).show()
                                 true
                             }
                             R.id.menu_eliminar->{
+                                DatabaseSO.eliminar(so?.get(posicion)?.idSO!!)
                                 Toast.makeText(this@ListaSOActivity,"Su seleccion:"+item.title, Toast.LENGTH_SHORT).show()
                                 true
                             }
                             R.id.menu_lista_aplicaciones->{
+                                val intent = Intent(this@ListaSOActivity,ListaAPPActivity::class.java)
+                                startActivity(intent)
                                 Toast.makeText(this@ListaSOActivity,"Su seleccion:"+item.title, Toast.LENGTH_SHORT).show()
                                 true
                             }
                             R.id.menu_compartir->{
+                                val contenid = so?.get(posicion)?.nombre
+                                val sendIntent : Intent =  Intent().apply {
+                                    action = Intent.ACTION_SEND
+                                    putExtra(Intent.EXTRA_TEXT,contenid)
+                                    type = "text/plain"
+                                }
+                                startActivity(sendIntent)
                                 Toast.makeText(this@ListaSOActivity,"Su seleccion:"+item.title, Toast.LENGTH_SHORT).show()
                                 true
                             }
@@ -64,10 +75,9 @@ class ListaSOActivity : AppCompatActivity() {
         })
         lista?.layoutManager = layoutManager
         lista?.adapter= adaptador
+
+        adaptador?.notifyDataSetChanged()
     }
 
-    fun irAEditar(){
-        val inten = Intent(this, EditarSOActivity::class.java)
-        startActivity(inten)
-    }
+
 }
