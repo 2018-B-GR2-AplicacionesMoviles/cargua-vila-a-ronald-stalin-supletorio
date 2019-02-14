@@ -50,10 +50,10 @@ class AdaptadorListaAP(private val listaAP : ArrayList<Aplicacion>, var clickLis
         var costoAP: TextView?=null
         var listener : ClickListener?= null
         init {
-            pesoGigasAP = vista.peso_lista_so
-            versionesAP = vista.version_lista_so
-            nombresAP = vista.nombre_lista_ap_lista_ap
-            fechaLanzamientoAP = vista.fecha_lanzamiento_lista_so
+            pesoGigasAP = vista.peso_listaAP
+            versionesAP = vista.version_listaAP
+            nombresAP = vista.nombre_listaAP
+            fechaLanzamientoAP = vista.lanzamiento_listaAP
             urlDescargaAP = vista.url_lista_ap
             costoAP = vista.costo_lista_ap
             this.listener = listener

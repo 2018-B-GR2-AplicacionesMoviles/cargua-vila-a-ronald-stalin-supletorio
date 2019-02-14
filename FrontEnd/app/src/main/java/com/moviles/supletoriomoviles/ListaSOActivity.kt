@@ -50,6 +50,7 @@ class ListaSOActivity : AppCompatActivity() {
                             }
                             R.id.menu_lista_aplicaciones->{
                                 val intent = Intent(this@ListaSOActivity,ListaAPPActivity::class.java)
+                                intent.putExtra("SistemaOperativo",so?.get(posicion)as SistemaOperativo)
                                 startActivity(intent)
                                 Toast.makeText(this@ListaSOActivity,"Su seleccion:"+item.title, Toast.LENGTH_SHORT).show()
                                 true

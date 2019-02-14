@@ -6,68 +6,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ListaAPPActivity">
-    <LinearLayout android:layout_width="394dp"
-                  android:layout_height="195dp"
+    <Button
+            android:text="@string/btn_nueva_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/btn_nuevo_app" android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+    <LinearLayout android:layout_width="380dp"
+                  android:layout_height="151dp"
                   tools:ignore="MissingConstraints"
                   android:orientation="vertical"
                   android:background="@color/colorPrimaryDark"
-                  android:id="@+id/linearLayout" android:layout_marginTop="16dp"
-                  app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
-                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-                  app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.0">
+                  android:id="@+id/linearLayout" android:layout_marginTop="24dp"
+                  app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="16dp"
+                  app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
+                  app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="1.0">
 
         <TextView
-                android:id="@+id/nombre_lista_so"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Nombre"
-                android:textSize="14sp" tools:layout_editor_absoluteX="16dp" android:layout_marginTop="8dp"
-                app:layout_constraintTop_toTopOf="parent" tools:ignore="MissingConstraints"
-                android:textColor="@color/alert_default_text_color"/>
-        <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Versión del API"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@+id/nombre_lista_so" android:layout_marginTop="8dp"
-                tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-                android:textColor="@color/alert_default_text_color" android:id="@+id/version_lista_ap"/>
+                android:layout_height="wrap_content" android:id="@+id/nombre_APP"
+                android:textColor="@color/alert_default_text_color" android:layout_margin="5dp"
+                android:layout_marginBottom="5dp" android:layout_marginEnd="5dp" android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" android:layout_marginStart="5dp" android:layout_marginTop="5dp"/>
         <TextView
-                android:id="@+id/fecha_lanzamiento_lista_so"
+                android:text="Version API"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fecha de Lanzamiento"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@+id/version_lista_so" android:layout_marginTop="8dp"
-                tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-                android:textColor="@color/alert_default_text_color"/>
+                android:layout_height="wrap_content" android:id="@+id/nombre_APP2"
+                android:textColor="@color/alert_default_text_color" android:layout_margin="5dp"
+                android:layout_marginBottom="5dp" android:layout_marginEnd="5dp" android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" android:layout_marginStart="5dp" android:layout_marginTop="5dp"/>
         <TextView
-                android:id="@+id/peso_lista_so"
+                android:text="Fecha Lanzamiento"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/nombre_APP3"
+                android:textColor="@color/alert_default_text_color" android:layout_margin="5dp"/>
+        <TextView
                 android:text="Peso en Gigas"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@+id/fecha_lanzamiento_lista_so" android:layout_marginTop="8dp"
-                tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-                android:textColor="@color/alert_default_text_color"/>
-        <TextView
-                android:id="@+id/instalado_lista_ap"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/nombre_APP4"
+                android:textColor="@color/alert_default_text_color" android:layout_margin="5dp"/>
+        <TextView
                 android:text="Instalado"
-                android:textSize="14sp"
-                app:layout_constraintTop_toBottomOf="@+id/peso_lista_so" android:layout_marginTop="8dp"
-                tools:layout_editor_absoluteX="16dp" android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent" tools:ignore="MissingConstraints"
-                android:textColor="@color/alert_default_text_color"/>
-        <Button
-                android:text="@string/btn_nueva_app"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/btn_nuevo_app" android:textAlignment="center"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/nombre_APP5"
+                android:textColor="@color/alert_default_text_color" android:layout_margin="5dp"/>
     </LinearLayout>
     <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="586dp"
+            android:layout_height="514dp"
             android:orientation="vertical"
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
@@ -76,8 +64,8 @@
             android:id="@+id/lista_ap"
             tools:layout_editor_absoluteX="0dp"
             tools:context=".ListaAPPActivity"
-            tools:ignore="MissingConstraints" app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-            android:layout_marginTop="24dp">
+            tools:ignore="MissingConstraints"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/btn_nuevo_app">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

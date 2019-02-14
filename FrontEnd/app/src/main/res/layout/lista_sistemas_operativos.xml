@@ -9,51 +9,67 @@
         android:clickable="true"
         android:id="@+id/lista_sos"
         android:foreground="?attr/selectableItemBackground"
-        android:layout_margin="5dp"
         android:background="@color/colorPrimaryDark"
         android:baselineAligned="false" tools:layout_editor_absoluteY="86dp" tools:layout_editor_absoluteX="5dp">
     <TextView
-            android:id="@+id/nombre_lista_so"
+            android:id="@+id/nombre_lista_soo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
-            android:textSize="14sp" tools:layout_editor_absoluteX="16dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color"/>
+            android:textSize="14sp"
+            tools:ignore="MissingConstraints"
+            android:textColor="@color/alert_default_text_color"
+            android:layout_marginTop="8dp" app:layout_constraintVertical_chainStyle="spread_inside"
+            android:layout_marginBottom="1dp" app:layout_constraintBottom_toTopOf="@+id/version_lista_sso"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
     <TextView
-            android:id="@+id/version_lista_so"
+            android:id="@+id/version_lista_sso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Versión del API"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/nombre_lista_so" android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color"/>
+            tools:ignore="MissingConstraints"
+            android:textColor="@color/alert_default_text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" app:layout_constraintTop_toBottomOf="@+id/nombre_lista_soo"
+            app:layout_constraintBottom_toTopOf="@+id/fecha_lanzamiento_lista_sso"/>
     <TextView
-            android:id="@+id/fecha_lanzamiento_lista_so"
+            android:id="@+id/fecha_lanzamiento_lista_sso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha de Lanzamiento"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/version_lista_so" android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color"/>
+            tools:ignore="MissingConstraints"
+            android:textColor="@color/alert_default_text_color"
+            app:layout_constraintStart_toStartOf="@+id/version_lista_sso"
+            app:layout_constraintTop_toBottomOf="@+id/version_lista_sso" android:layout_marginBottom="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/peso_lista_soo"/>
     <TextView
-            android:id="@+id/peso_lista_so"
+            android:id="@+id/peso_lista_soo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Peso en Gigas"
             android:textSize="14sp"
-            tools:layout_editor_absoluteX="16dp" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color" tools:layout_editor_absoluteY="89dp"/>
+            tools:ignore="MissingConstraints"
+            android:textColor="@color/alert_default_text_color"
+            app:layout_constraintStart_toStartOf="@+id/instalado_lista_sso"
+            app:layout_constraintTop_toBottomOf="@+id/fecha_lanzamiento_lista_sso"
+            app:layout_constraintBottom_toTopOf="@+id/instalado_lista_sso"/>
     <TextView
-            android:id="@+id/instalado_lista_so"
+            android:id="@+id/instalado_lista_sso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Instalado"
             android:textSize="14sp"
-            app:layout_constraintTop_toBottomOf="@+id/peso_lista_so" android:layout_marginTop="8dp"
-            tools:layout_editor_absoluteX="16dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" tools:ignore="MissingConstraints"
-            android:textColor="@color/alert_default_text_color"/>
+            tools:ignore="MissingConstraints"
+            android:textColor="@color/alert_default_text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/peso_lista_soo" android:layout_marginBottom="8dp"/>
+    <android.support.constraint.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                          android:id="@+id/guideline" app:layout_constraintGuide_begin="20dp"
+                                          android:orientation="vertical"/>
+    <android.support.constraint.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                      android:id="@+id/group"/>
 </android.support.constraint.ConstraintLayout>

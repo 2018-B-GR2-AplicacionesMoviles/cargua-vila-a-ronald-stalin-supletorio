@@ -11,7 +11,7 @@ import org.json.JSONArray
 
 class DatabaseSO(){
     companion object {
-        var ip ="http://172.29.66.87:1337/Sistema_operativo"
+        var ip ="http://172.29.29.98:1337/Sistema_operativo"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 

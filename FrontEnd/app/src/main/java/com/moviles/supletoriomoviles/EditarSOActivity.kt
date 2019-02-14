@@ -11,7 +11,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.tapadoo.alerter.Alerter
 import es.dmoral.toasty.Toasty
-import kotlinx.android.synthetic.main.activity_crear_so.*
+import kotlinx.android.synthetic.main.activity_editar_so.*
 
 class EditarSOActivity : AppCompatActivity() {
 
@@ -22,15 +22,15 @@ class EditarSOActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_so)
         val SOrecivido = intent.getParcelableExtra<SistemaOperativo>("SistemaOperativo")
-        txt_nombre_ap.setText(SOrecivido.nombre.toString())
-        txt_version_ap.setText(SOrecivido.versionApi.toString())
-        txt_fecha_lanzamiento_ap.setText(SOrecivido.fechaLanzamiento.toString())
-        txt_peso_gigas_ap.setText(SOrecivido.pesoGigas.toString())
+        txt_nombre_so.setText(SOrecivido.nombre.toString())
+        txt_version_api_so.setText(SOrecivido.versionApi.toString())
+        txt_fecha_lanzamiento_so.setText(SOrecivido.fechaLanzamiento.toString())
+        txt_peso_gigas_so.setText(SOrecivido.pesoGigas.toString())
         idSO = SOrecivido.idSO.toInt()
         btn_cancelar_so.setOnClickListener {
             this.irAMain()
         }
-        comboInstalado = findViewById(R.id.instalado_so)
+        comboInstalado = findViewById(R.id.instalado_sso)
         val adapter: ArrayAdapter<CharSequence>
         adapter = ArrayAdapter.createFromResource(this, R.array.combo_intalado, android.R.layout.simple_spinner_item)
 
@@ -68,10 +68,10 @@ class EditarSOActivity : AppCompatActivity() {
     }
 
     fun guardarDatos() {
-        if (txt_nombre_ap.text.toString().isEmpty() ||
-            txt_version_ap.text.toString().isEmpty() ||
-            txt_fecha_lanzamiento_ap.text.toString().isEmpty() ||
-            txt_peso_gigas_ap.text.toString().isEmpty()
+        if (txt_nombre_so.text.toString().isEmpty() ||
+            txt_version_api_so.text.toString().isEmpty() ||
+            txt_fecha_lanzamiento_so.text.toString().isEmpty() ||
+            txt_peso_gigas_so.text.toString().isEmpty()
         ) {
             Alerter.create(this).setTitle("Campos Vacios")
                 .setText("Completa la informacion de todos los campos")
@@ -80,10 +80,10 @@ class EditarSOActivity : AppCompatActivity() {
                 .show()
         } else {
 
-            var nombreSO = txt_nombre_ap.text.toString()
-            var versionSO = txt_version_ap.text.toString().toInt()
-            var fechaLanzamientoSO = txt_fecha_lanzamiento_ap.text.toString()
-            var pesoGigasSO = txt_peso_gigas_ap.text.toString().toDouble()
+            var nombreSO = txt_nombre_so.text.toString()
+            var versionSO = txt_version_api_so.text.toString().toInt()
+            var fechaLanzamientoSO = txt_fecha_lanzamiento_so.text.toString()
+            var pesoGigasSO = txt_peso_gigas_so.text.toString().toDouble()
             var instaladoSO: Boolean
             if (opcion.equals("Si", true)) {
                 instaladoSO = true

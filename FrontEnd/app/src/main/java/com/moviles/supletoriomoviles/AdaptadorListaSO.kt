@@ -51,11 +51,11 @@ class AdaptadorListaSO(private val listaSO : ArrayList<SistemaOperativo>, var cl
         var intsaladoSO: TextView?=null
         var listener : ClickListener?= null
         init {
-            nombreSO = vista.nombre_lista_so
-            versioSO = vista.version_lista_so
-            fechaLanzamientoSO = vista.fecha_lanzamiento_lista_so
-            pesoGigasSO = vista.peso_lista_so
-            intsaladoSO = vista.instalado_lista_so
+            nombreSO = vista.nombre_lista_soo
+            versioSO = vista.version_lista_sso
+            fechaLanzamientoSO = vista.fecha_lanzamiento_lista_sso
+            pesoGigasSO = vista.peso_lista_soo
+            intsaladoSO = vista.instalado_lista_sso
             this.listener = listener
             vista.setOnClickListener(this)
         }
