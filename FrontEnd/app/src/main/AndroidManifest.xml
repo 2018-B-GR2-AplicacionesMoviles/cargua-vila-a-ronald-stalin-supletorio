@@ -45,6 +45,18 @@
         <activity android:name=".ListaAPPActivity"/>
         <activity android:name=".CrearAplicacionActivity"/>
         <activity android:name=".EditarAPPActivity"/>
+        <activity android:name=".MenuJuegoActivity">
+        </activity>
+        <activity android:name=".RegistrarAPPActivity">
+        </activity>
+        <activity android:name=".VerAplicacionesActivity">
+        </activity>
+        <activity android:name=".RecolectarBatallaActivity">
+        </activity>
+        <activity android:name=".InfoBatallasActivity">
+        </activity>
+        <activity android:name=".PerfilUsuarioActivity">
+        </activity>
     </application>
 
 </manifest>

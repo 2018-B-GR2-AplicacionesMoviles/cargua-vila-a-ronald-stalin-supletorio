@@ -20,4 +20,10 @@
     <string name="btn_nueva_app">Crear nueva APP</string>
     <string name="costo">Costo</string>
     <string name="url_descarga">URL Descarga</string>
+    <string name="btn_registrar_aplicacion">Registar Aplicaciones</string>
+    <string name="btn_ver_aplicaciones">Ver Aplicaciones</string>
+    <string name="btn_recolectar_batalla">Recolectar o Batalla</string>
+    <string name="btn_info_batallas">Info Batallas</string>
+    <string name="btn_perfil">Perfil</string>
+    <string name="btn_regresar">Regresar</string>
 </resources>

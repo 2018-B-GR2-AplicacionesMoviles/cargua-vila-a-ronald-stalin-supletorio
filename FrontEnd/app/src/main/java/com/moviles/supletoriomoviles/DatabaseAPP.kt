@@ -46,6 +46,44 @@ class DatabaseAPP() {
                 Log.i("http-2",request.toString())
             }
         }
+        fun buscar(nombre: String): ArrayList<Aplicacion>{
+
+            val aplicaciones: ArrayList<Aplicacion> = ArrayList()
+            "${ip}/?nombres=${nombre}".httpGet().responseJson {
+                    request, response, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        val ex = result.getException()
+                        Log.i("http-2", "Error: ${ex}")
+                    }
+                    is Result.Success -> {
+                        val datos = result.get()
+                        aux = datos.array()
+                        Log.i("http-2", "DatosAP: ${aux}")
+                        Log.i("Tipo", "${aux::class.simpleName}")
+                    }
+
+                }
+                resp = result.get().array()
+
+            }
+            for (i in 0 until aux.length()) {
+
+                val id = resp.getJSONObject(i).getInt("id")
+                val pesoGigas = resp.getJSONObject(i).getDouble("pesoGigas")
+                val versiones = resp.getJSONObject(i).getInt("versiones")
+                val nombres = resp.getJSONObject(i).getString("nombres")
+                val urlDescarga = resp.getJSONObject(i).getString("urlDescarga")
+                val fechaLanzamiento =resp.getJSONObject(i).getString("fechaLanzamiento")
+                val costo =resp.getJSONObject(i).getDouble("costo")
+                val soId =resp.getJSONObject(i).getInt("soId")
+                val app = Aplicacion(id,pesoGigas,versiones,nombres,urlDescarga,fechaLanzamiento,costo,soId)
+                aplicaciones.add(app)
+                Log.i("http-2", "DatosAP-2: ${app}")
+            }
+            Log.i("http-2", "DatosReturnAP: ${aplicaciones}")
+            return aplicaciones
+        }
         fun getListaIdSO(id: Int): ArrayList<Aplicacion>{
 
             val aplicaciones: ArrayList<Aplicacion> = ArrayList()

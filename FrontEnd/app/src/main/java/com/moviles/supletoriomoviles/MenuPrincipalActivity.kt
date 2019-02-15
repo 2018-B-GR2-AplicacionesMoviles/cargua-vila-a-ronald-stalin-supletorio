@@ -16,6 +16,13 @@ class MenuPrincipalActivity : AppCompatActivity() {
         btn_lista_so.setOnClickListener {
             this.irAListaSO()
         }
+        btn_jugar.setOnClickListener {
+            this.irAJugar()
+        }
+    }
+    fun irAJugar(){
+        val intent = Intent(this, MenuJuegoActivity::class.java)
+        startActivity(intent)
     }
     fun irACrearSO(){
         val intent = Intent(this,CrearSOActivity::class.java)
