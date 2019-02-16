@@ -8,7 +8,17 @@
 module.exports = {
 
   attributes: {
-
+	ganador:{
+		type: 'boolean'
+	},
+	
+	idAppPorUsuario:{
+		model: 'AplicacionPorUsuario'
+  },
+  
+  idInTiBatalla:{
+    model: 'InteraccionesTipoBatalla'
+  }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

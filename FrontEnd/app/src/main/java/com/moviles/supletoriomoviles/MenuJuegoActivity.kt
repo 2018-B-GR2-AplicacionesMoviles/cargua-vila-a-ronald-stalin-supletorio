@@ -38,7 +38,7 @@ class MenuJuegoActivity : AppCompatActivity() {
     }
 
     fun irARecolectarOBatalla(){
-        val inten = Intent(this, RecolectarBatallaActivity::class.java)
+        val inten = Intent(this, BatallaMapsActivity::class.java)
         startActivity(inten)
     }
 

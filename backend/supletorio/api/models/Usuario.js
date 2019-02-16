@@ -29,6 +29,11 @@ module.exports = {
 	},
 	totalExperiencia:{
 		type:"number"
+	},
+	
+	aplicacionPorUsuario:{
+		collection:'AplicacionPorUsuario',
+		via:'idUsuario'
 	}
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗

@@ -26,4 +26,5 @@
     <string name="btn_info_batallas">Info Batallas</string>
     <string name="btn_perfil">Perfil</string>
     <string name="btn_regresar">Regresar</string>
+    <string name="title_activity_batalla_maps">Map</string>
 </resources>

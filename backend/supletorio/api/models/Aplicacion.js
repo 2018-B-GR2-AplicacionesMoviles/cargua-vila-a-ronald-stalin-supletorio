@@ -28,10 +28,23 @@ module.exports = {
       type:"number"
     },
 	soId:{
-      type:"number"
+      model:"Sistema_operativo"
     },
+	aplicacionPorUsuario:{
+		collection:'AplicacionPorUsuario',
+		via:'idAplicacion'
+	},
+	interaccionesTipoBatalla:{
+		collection:'InteraccionesTipoBatalla',
+		via:'idAplicacion'
+	},
+	interaccionesTipoRecoleccion:{
+		collection:'InteraccionesTipoRecoleccion',
+		via:'idAplicacion'
+	},
 	tipoAplicacion:{
-		type:"number"
+		type:'string',
+		isIn:['batalla','recoleccion','personaje']
 	}
 		
 

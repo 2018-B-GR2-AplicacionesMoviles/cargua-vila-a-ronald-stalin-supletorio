@@ -8,7 +8,19 @@
 module.exports = {
 
   attributes: {
-
+	  
+	idAplicacionPorUsuario:{
+      model: 'AplicacionPorUsuario'
+    },
+	idAplicacion:{
+      model: 'Aplicacion'
+    },
+	oroRecolectado:{
+		type:'number'
+	},
+	experienciaRecolectado:{
+		type:'number'
+	}
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

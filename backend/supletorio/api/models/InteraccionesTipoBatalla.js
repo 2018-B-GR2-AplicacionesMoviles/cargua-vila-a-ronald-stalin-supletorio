@@ -8,7 +8,29 @@
 module.exports = {
 
   attributes: {
-
+	  
+	idAplicacion:{
+		model:'Aplicacion'
+	},
+	clima:{
+		type:'number'
+	},
+	turnosJugados:{
+		type:'number'
+	},
+	recompensaOro:{
+		type:'number'
+	},
+	recompensaExp:{
+		type:'number'
+	},
+	estado:{
+		type:'boolean'
+	},
+	appEnBatalla:{
+		collection:'AplicacionesEnBatalla',
+		via:'idInTiBatalla'
+	}
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

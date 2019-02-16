@@ -22,7 +22,12 @@ module.exports = {
 	},
 	instalado:{
 		type:"boolean"
+	},
+	aplicacion:{
+		collection:'Aplicacion',
+		via:'soId'
 	}
+	
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

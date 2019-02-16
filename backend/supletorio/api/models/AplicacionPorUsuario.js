@@ -10,23 +10,23 @@ module.exports = {
   attributes: {
 	
 	idUsuario:{
-      type:"number"
+      model: 'Usuario'
     },
 	idAplicacion:{
-      type:"number"
+      model: 'Aplicacion'
     },
-	experiencia:{
-		type:"number"
+	experienciaAPP:{
+		type:'number'
 	},
-	oro:{
-		type:"number"
+	aplicacionesEnBatalla:{
+		collection:'AplicacionesEnBatalla',
+		via:'idAppPorUsuario'
 	},
-	numBatall:{
-		type:"number"
-	},
-	numRecoleccion:{
-		type:"number"
+	interaccionesTipoRecoleccion:{
+		collection:'InteraccionesTipoRecoleccion',
+		via:'idAplicacionPorUsuario'
 	}
+	
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
