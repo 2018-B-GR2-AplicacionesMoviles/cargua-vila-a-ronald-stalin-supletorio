@@ -3,14 +3,17 @@ package com.moviles.supletoriomoviles
 import android.os.Parcel
 import android.os.Parcelable
 
-class Aplicacion(var idAP : Int,
-                 var pesoGigas : Double,
-                 var versiones : Int,
-                 var nombres : String,
-                 var urlDescarga: String,
-                 var fechaLanzamiento : String,
-                 var costo : Double,
-                 var soId : Int): Parcelable {
+
+class Aplicacion(
+    var idAP: Int,
+    var pesoGigas: Double,
+    var versiones: Int,
+    var nombres: String,
+    var urlDescarga: String,
+    var fechaLanzamiento: String,
+    var costo: Double,
+    var tipoAplicacion: String,
+    var soId: Int): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readDouble(),
@@ -19,6 +22,7 @@ class Aplicacion(var idAP : Int,
         parcel.readString(),
         parcel.readString(),
         parcel.readDouble(),
+        parcel.readString(),
         parcel.readInt()
     ) {
     }
@@ -31,6 +35,7 @@ class Aplicacion(var idAP : Int,
         parcel.writeString(urlDescarga)
         parcel.writeString(fechaLanzamiento)
         parcel.writeDouble(costo)
+        parcel.writeString(tipoAplicacion)
         parcel.writeInt(soId)
     }
 
@@ -47,4 +52,6 @@ class Aplicacion(var idAP : Int,
             return arrayOfNulls(size)
         }
     }
+
 }
+

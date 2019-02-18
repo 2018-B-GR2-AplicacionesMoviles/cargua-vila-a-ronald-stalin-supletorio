@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var usuarios : ArrayList<Usuario>
     var estadoIngresoSistema = 0
-    lateinit var valorIdUser:String
+    var valorIdUser = 0
     lateinit var usuarioActual:String
     var usuario : Usuario? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +33,16 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun irAMenuPrincipal(){
+    fun irAMenuPrincipal(idUsuario : Int){
+        Log.i("hola","Main${idUsuario}")
+
         val intent = Intent(this, MenuPrincipalActivity::class.java)
+        intent.putExtra("IdUsuario",idUsuario)
         startActivity(intent)
     }
 
     fun login(){
+
         var emailUsuario = txt_email.text.toString()
         var passwordUsuario = txt_password.text.toString()
         Log.i("datosUsu", emailUsuario)
@@ -50,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             if (datos.email.equals(emailUsuario,true)&&datos.password.equals(passwordUsuario,true)){
                 estadoIngresoSistema = 1
                 usuarioActual = datos.nombre
-                valorIdUser = datos.idUser.toString()
+                valorIdUser = datos.idUser
             }
         }
 
@@ -58,7 +62,9 @@ class MainActivity : AppCompatActivity() {
             Toasty.success(this,
                 "Bienvenido al Sistema: ${usuarioActual}",
                 Toast.LENGTH_LONG,true).show()
-            this.irAMenuPrincipal()
+            Log.i("hola","Menu lll${valorIdUser}")
+
+            this.irAMenuPrincipal(valorIdUser)
         }else{
             Alerter.create(this)
                 .setTitle("Datos Incorrectos")

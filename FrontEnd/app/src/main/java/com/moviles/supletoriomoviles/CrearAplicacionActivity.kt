@@ -26,7 +26,7 @@ class CrearAplicacionActivity : AppCompatActivity() {
 
     var tipo = false
     var idS = 0
-
+    var tipoApp =""
     var pathActualFoto = ""
     var respuestaBarcode = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +40,7 @@ class CrearAplicacionActivity : AppCompatActivity() {
         val type = intent.getStringExtra("tipo")
         val aplicacionRecivida = intent.getParcelableExtra<Aplicacion>("Aplicacion")
         idS = aplicacionRecivida.soId
+        tipoApp = aplicacionRecivida.tipoAplicacion
         if (type == "Edit"){
             txt_id_ap.setText(aplicacionRecivida.idAP.toString())
             txt_peso_ap.setText(aplicacionRecivida.pesoGigas.toString())
@@ -84,7 +85,8 @@ class CrearAplicacionActivity : AppCompatActivity() {
             var fechaLanzamiento = txt_lanzamiento_ap.text.toString()
             var urlDescarga =  txt_url_ap.text.toString()
             var soId = idS
-            var aplicacion  = Aplicacion(id,pesoGigas,versiones,nombres,urlDescarga,fechaLanzamiento,costo,soId)
+            var tipoA = tipoApp
+            var aplicacion  = Aplicacion(id,pesoGigas,versiones,nombres,urlDescarga,fechaLanzamiento,costo,tipoA,soId)
             if (tipo == true){
 
                 DatabaseAPP.editarSO(aplicacion)

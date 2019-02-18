@@ -17,7 +17,13 @@ module.exports = {
     },
 	experienciaAPP:{
 		type:'number'
-	},
+  },
+  numBatallas:{
+    type:'number'
+  },
+  numRecolectas:{
+    type:'number'
+  },
 	aplicacionesEnBatalla:{
 		collection:'AplicacionesEnBatalla',
 		via:'idAppPorUsuario'

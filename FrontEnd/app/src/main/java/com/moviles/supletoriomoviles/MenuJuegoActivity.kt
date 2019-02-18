@@ -3,6 +3,7 @@ package com.moviles.supletoriomoviles
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.android.synthetic.main.activity_menu_juego.*
 
 class MenuJuegoActivity : AppCompatActivity() {
@@ -11,9 +12,12 @@ class MenuJuegoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_juego)
 
+        val idUsua = intent.getIntExtra("IdUsuario",0)
+
         btn_registrar.setOnClickListener {
-            this.irARegistrarAplicaciones()
+            this.irARegistrarAplicaciones(idUsua)
         }
+
         btn_ver_app.setOnClickListener {
             this.irAVerAplicaciones()
         }
@@ -24,11 +28,13 @@ class MenuJuegoActivity : AppCompatActivity() {
             this.irAInfoBatalla()
         }
         btn_perfil.setOnClickListener {
-            this.irAVerPerfil()
+            this.irAVerPerfil(idUsua)
         }
     }
-    fun irARegistrarAplicaciones(){
+    fun irARegistrarAplicaciones(idUsuario: Int){
+
         val inten = Intent(this, RegistrarAPPActivity::class.java)
+        inten.putExtra("Usuario",idUsuario)
         startActivity(inten)
     }
 
@@ -47,8 +53,9 @@ class MenuJuegoActivity : AppCompatActivity() {
         startActivity(inten)
     }
 
-    fun irAVerPerfil(){
+    fun irAVerPerfil(idUsuario: Int){
         val inten = Intent(this, PerfilUsuarioActivity::class.java)
+        inten.putExtra("Usuario",idUsuario)
         startActivity(inten)
     }
 }
