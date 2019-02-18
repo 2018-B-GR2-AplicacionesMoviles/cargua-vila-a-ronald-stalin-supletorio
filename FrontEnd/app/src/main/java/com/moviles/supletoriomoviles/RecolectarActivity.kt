@@ -23,6 +23,7 @@ class RecolectarActivity : AppCompatActivity() {
     }
 
     fun irAMenu(){
+        finish()
         val intent = Intent(this, MenuJuegoActivity::class.java)
         startActivity(intent)
     }

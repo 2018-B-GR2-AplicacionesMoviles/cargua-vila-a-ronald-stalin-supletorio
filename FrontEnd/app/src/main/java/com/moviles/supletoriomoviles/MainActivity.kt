@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun irACrearUsuario(){
-        val intent = Intent(this, BatallaMapsActivity::class.java)
+        val intent = Intent(this, CrearUsuarioActivity::class.java)
         startActivity(intent)
     }
 

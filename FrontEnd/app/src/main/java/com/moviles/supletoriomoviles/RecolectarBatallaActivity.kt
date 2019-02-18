@@ -34,7 +34,12 @@ class RecolectarBatallaActivity : AppCompatActivity() {
                     popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.menu_seleccionar -> {
+                                val idApp = DatabaseAPPorUsuario.getList2(so?.get(posicion)?.idAppPorUsu!!)
+                                val idUsu = DatabaseAPPorUsuario.getList4(so?.get(posicion)?.idAppPorUsu!!)
                                 val intent = Intent(this@RecolectarBatallaActivity, BatallaMapsActivity::class.java)
+                                intent.putExtra("idAppPorUsuario",so?.get(posicion)?.idAppPorUsu!!)
+                                intent.putExtra("idUsuario", idUsu)
+                                intent.putExtra("idApp",idApp)
                                 startActivity(intent)
                                 Toast.makeText(
                                     this@RecolectarBatallaActivity,
