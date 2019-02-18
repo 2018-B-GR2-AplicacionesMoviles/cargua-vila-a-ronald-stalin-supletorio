@@ -7,6 +7,7 @@
 
 module.exports = {
 
+  
   attributes: {
 	ganador:{
 		type: 'boolean'

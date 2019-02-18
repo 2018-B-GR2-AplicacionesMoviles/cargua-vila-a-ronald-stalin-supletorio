@@ -2,48 +2,49 @@ package com.moviles.supletoriomoviles
 
 import android.util.Log
 import com.github.kittinunf.fuel.android.extension.responseJson
-import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.httpPut
 import com.github.kittinunf.result.Result
 import org.json.JSONArray
 
-class DatabaseInTiRecoleccion {
+class DatabaseInTiBatalla(){
     companion object {
-        var ip ="http://172.29.64.166:1337/InteraccionesTipoRecoleccion"
+        var ip ="http://172.29.64.166:1337/InteraccionesTipoBatalla"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 
-        fun insertarSO(so: InteraccionTipoRecoleccion){
+        fun insertar(baralla: InteraccionTipoBatalla){
             ip.httpPost(listOf(
-                "id" to so.idIntiR,
-                "oroRecolectado" to so.oroRecolectado,
-                "experienciaRecolectado" to so.experienciaRecolectado,
-                "idAplicacion" to so.idApp,
-                "idAplicacionPorUsuario" to so.idAppPorUsuario))
-                .responseString{ request, _, result ->
-                    Log.i("http-6",request.toString())
-                    Log.i("http-6",result.toString())
-                }
-        }
-        fun editarSO(so: InteraccionTipoRecoleccion){
-            "${ip}/${so.idIntiR}".httpPut(listOf("oroRecolectado" to so.oroRecolectado,
-                "experienciaRecolectado" to so.experienciaRecolectado,
-                "idAplicacion" to so.idApp,
-                "idAplicacionPorUsuario" to so.idAppPorUsuario))
-                .responseString{ request, _, result ->
-                    Log.i("http-2",request.toString())
-                }
-        }
-        fun eliminar(id: Int){
-            "${ip}/${id}".httpDelete().responseString{
-                    request, response, result ->
-                Log.i("http-2",request.toString())
+                "idInti" to baralla.idInti,
+                "clima" to baralla.clima,
+                "turnosJugados" to baralla.turnosJugados,
+                "recompensaExperiencia" to baralla.recompensaExperiencia,
+                "recompensaOro" to baralla.recompensaOro,
+                "idApp" to baralla.idApp,
+                "estado" to baralla.estado
+            )).responseString{ request, _, result ->
+                Log.i("http-6",request.toString())
+                Log.i("http-6",result.toString())
             }
         }
-        fun getList(): ArrayList<InteraccionTipoRecoleccion>{
-            val recoleccion: ArrayList<InteraccionTipoRecoleccion> = ArrayList()
+        fun editar(baralla: InteraccionTipoBatalla){
+            "${ip}/${baralla.idInti}".httpPut(listOf(
+                "idInti" to baralla.idInti,
+                "clima" to baralla.clima,
+                "turnosJugados" to baralla.turnosJugados,
+                "recompensaExperiencia" to baralla.recompensaExperiencia,
+                "recompensaOro" to baralla.recompensaOro,
+                "idApp" to baralla.idApp,
+                "estado" to baralla.estado
+            )).responseString{ request, _, result ->
+                Log.i("http-6",request.toString())
+                Log.i("http-6",result.toString())
+            }
+        }
+
+        fun getList(): ArrayList<InteraccionTipoBatalla>{
+            val recoleccion: ArrayList<InteraccionTipoBatalla> = ArrayList()
             ip.httpGet().responseJson {
                     request, response, result ->
                 when (result) {
@@ -65,11 +66,13 @@ class DatabaseInTiRecoleccion {
 
             for (i in 0 until aux.length()) {
                 val id = resp.getJSONObject(i).getInt("id")
-                val oroRecolectado = resp.getJSONObject(i).getInt("oroRecolectado")
-                val experienciaRecolectado = resp.getJSONObject(i).getInt("experienciaRecolectado")
-                val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getInt("id")
-                val idAplicacionPorUsuario =resp.getJSONObject(i).getJSONObject("idAplicacionPorUsuario").getInt("id")
-                val siso = InteraccionTipoRecoleccion(id,idAplicacionPorUsuario,idAplicacion,oroRecolectado,experienciaRecolectado)
+                val clima = resp.getJSONObject(i).getInt("clima")
+                val turnosJugados = resp.getJSONObject(i).getInt("turnosJugados")
+                val recompensaExperiencia = resp.getJSONObject(i).getInt("recompensaOro")
+                val recompensaOro = resp.getJSONObject(i).getInt("recompensaExp")
+                val idApp = resp.getJSONObject(i).getJSONObject("idAplicacion").getInt("id")
+                val estado = resp.getJSONObject(i).getString("estado")
+                val siso = InteraccionTipoBatalla(id,idApp,clima,turnosJugados,recompensaOro,recompensaExperiencia,estado)
                 recoleccion.add(siso)
                 Log.i("http-2", "DatosSO: ${recoleccion}")
             }
@@ -78,7 +81,7 @@ class DatabaseInTiRecoleccion {
         }
         fun getId():Int{
             var idInTiRe = 0
-            ip.httpGet().responseJson {
+            DatabaseInTiRecoleccion.ip.httpGet().responseJson {
                     request, response, result ->
                 when (result) {
                     is Result.Failure -> {
@@ -87,7 +90,7 @@ class DatabaseInTiRecoleccion {
                     }
                     is Result.Success -> {
                         val datos = result.get()
-                        aux = datos.array()
+                        DatabaseInTiRecoleccion.aux = datos.array()
                         Log.i("http-2", "DatosSO: ${aux}")
                         Log.i("Tipo", "${aux::class.simpleName}")
                     }
@@ -103,5 +106,6 @@ class DatabaseInTiRecoleccion {
             }
             return idInTiRe
         }
+
     }
 }

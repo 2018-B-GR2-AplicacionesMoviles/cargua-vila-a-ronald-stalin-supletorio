@@ -41,14 +41,17 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                 Log.i("distancia", "distancia: ${dis}")
                 if (dis < 1){
                     if (p0?.title.equals("Recolectar")){
+
                         var idApp = intent.getIntExtra("idApp",0)
                         var idPoUsu =  intent.getIntExtra("idAppPorUsuario",0)
                         var idUsu = intent.getIntExtra("idUsuario",0)
                         var oro = Random().nextInt(100)
                         var experiecia = Random().nextInt(100)
-
-                        var interaccionTipoRecoleccion= InteraccionTipoRecoleccion(0,idPoUsu,idApp,oro,experiecia)
+                        var idInTiRe = DatabaseInTiRecoleccion.getId() + 1
+                        var interaccionTipoRecoleccion= InteraccionTipoRecoleccion(idInTiRe,idPoUsu,idApp,oro,experiecia)
                         DatabaseInTiRecoleccion.insertarSO(interaccionTipoRecoleccion)
+
+
                         var appPorUsu = DatabaseAPPorUsuario.getList3(idPoUsu)
                         val id = appPorUsu[0]?.idAppPorUsu
                         val idUsuario = appPorUsu[0].idUsuario
@@ -58,6 +61,8 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                         val numRecolectas = appPorUsu[0].numRecolectas + 1
                         val appPor = AppPorUsuario(id,idAplicacion,idUsuario,experienciaAPP,numBatallas,numRecolectas)
                         DatabaseAPPorUsuario.editarSO(appPor)
+
+
                         var usu = DatabaseUsuario.getList1(idUsu)
                         val id2 = usu[0]?.idUser
                         val nombre = usu[0]?.nombre
@@ -69,12 +74,18 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                         val totalExperiencia = usu[0]?.total_experiencia + experiecia
                         val usuario = Usuario(id2,nombre,apellido,fechaNacimiento,email,password,totalOro,totalExperiencia)
                         DatabaseUsuario.editarUsuario(usuario)
+
+
                         val intent = Intent(this, RecolectarActivity::class.java)
                         intent.putExtra("ORO",oro)
                         intent.putExtra("EXPERIENCIA",experiecia)
                         startActivity(intent)
                     }else if (p0?.title.equals("Batalla")){
+                        var oro = Random().nextInt(100)
+                        var experiecia = Random().nextInt(100)
                         val intent = Intent(this, BatallaActivity::class.java)
+                        intent.putExtra("ORO",oro)
+                        intent.putExtra("EXPERIENCIA",experiecia)
                         startActivity(intent)
                     }
 

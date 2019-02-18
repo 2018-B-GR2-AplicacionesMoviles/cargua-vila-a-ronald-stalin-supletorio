@@ -9,7 +9,7 @@ class InteraccionTipoBatalla(var idInti: Int,
                              var turnosJugados : Int,
                              var recompensaOro : Int,
                              var recompensaExperiencia : Int,
-                             var estado : Boolean): Parcelable{
+                             var estado : String): Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readInt(),
@@ -17,7 +17,7 @@ class InteraccionTipoBatalla(var idInti: Int,
         parcel.readInt(),
         parcel.readInt(),
         parcel.readInt(),
-        parcel.readByte() != 0.toByte()
+        parcel.readString()
     ) {
     }
 
@@ -28,7 +28,7 @@ class InteraccionTipoBatalla(var idInti: Int,
         parcel.writeInt(turnosJugados)
         parcel.writeInt(recompensaOro)
         parcel.writeInt(recompensaExperiencia)
-        parcel.writeByte(if (estado) 1 else 0)
+        parcel.writeString(estado)
     }
 
     override fun describeContents(): Int {

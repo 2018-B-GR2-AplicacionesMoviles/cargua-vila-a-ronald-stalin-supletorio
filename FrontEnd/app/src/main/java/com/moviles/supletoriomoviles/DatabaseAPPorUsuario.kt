@@ -116,7 +116,7 @@ class DatabaseAPPorUsuario {
             return appPorUsuarios
         }
         fun getList2(id: Int): Int{
-            val appPorUsuarios: Int =0
+            var appPorUsuarios: Int =0
             "${ip}/?id=${id}".httpGet().responseJson {
                     request, response, result ->
                 when (result) {
@@ -138,12 +138,13 @@ class DatabaseAPPorUsuario {
             for (i in 0 until aux.length()) {
                 Log.i("http-3", "DatosReturnAP-3: a")
                 val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getInt("id")
+                appPorUsuarios = idAplicacion
             }
             Log.i("http-3", "DatosReturnAP-3: ${appPorUsuarios}")
             return appPorUsuarios
         }
         fun getList4(id: Int): Int{
-            val appPorUsuarios: Int =0
+            var appPorUsuarios: Int =0
             "${ip}/?id=${id}".httpGet().responseJson {
                     request, response, result ->
                 when (result) {
@@ -165,6 +166,7 @@ class DatabaseAPPorUsuario {
             for (i in 0 until aux.length()) {
                 Log.i("http-3", "DatosReturnAP-3: a")
                 val idAplicacion = resp.getJSONObject(i).getJSONObject("idUsuario").getInt("id")
+                appPorUsuarios = idAplicacion
             }
             Log.i("http-3", "DatosReturnAP-3: ${appPorUsuarios}")
             return appPorUsuarios

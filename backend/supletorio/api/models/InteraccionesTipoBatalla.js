@@ -25,7 +25,8 @@ module.exports = {
 		type:'number'
 	},
 	estado:{
-		type:'boolean'
+		type:'string',
+		isIn:["Espera","BatallaTerminada"]
 	},
 	appEnBatalla:{
 		collection:'AplicacionesEnBatalla',

@@ -7,4 +7,71 @@
         android:layout_height="match_parent"
         tools:context=".ResultadoBatallaActivity">
 
+    <TextView
+            android:text="Resultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView17" android:layout_marginTop="56dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:textSize="24sp" app:layout_constraintHorizontal_bias="0.498"/>
+    <TextView
+            android:text="Clima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="60dp" android:id="@+id/txt_clima" android:textSize="18sp"
+            tools:ignore="MissingConstraints" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView17"/>
+    <TextView
+            android:text="Turnos Jugados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_turnos_jugados" android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_clima" android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_clima"/>
+    <TextView
+            android:text="Recompensa Oro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_recompensa_oro" android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_turnos_jugados" android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_turnos_jugados"
+    />
+    <TextView
+            android:text="Recompensa Experiencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_recompensa_ex" android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_recompensa_oro" android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/txt_recompensa_oro"
+    />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginTop="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/txt_recompensa_ex"
+            app:layout_constraintEnd_toEndOf="@+id/txt_recompensa_ex"
+            app:layout_constraintStart_toStartOf="@+id/txt_recompensa_ex" app:layout_constraintHorizontal_bias="0.729"
+            android:layout_margin="5dp" android:id="@+id/linearLayout4">
+        <TextView
+                android:text="Aplicacion 1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/txt_hijo_1" android:layout_margin="10dp"
+                android:textSize="24sp"/>
+        <TextView
+                android:text="Aplicacion 2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/txt_hijo_2" android:layout_margin="10dp"
+                android:textSize="24sp"/>
+    </LinearLayout>
+    <Button
+            android:text="@string/btn_ir_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button2" android:layout_marginTop="72dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout4" app:layout_constraintHorizontal_bias="0.511"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
 </android.support.constraint.ConstraintLayout>
