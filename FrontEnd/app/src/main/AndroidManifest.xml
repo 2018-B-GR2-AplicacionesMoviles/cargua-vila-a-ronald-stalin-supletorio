@@ -80,6 +80,12 @@
                 android:name=".BatallaMapsActivity"
                 android:label="@string/title_activity_batalla_maps">
         </activity>
+        <activity android:name=".RecolectarActivity">
+        </activity>
+        <activity android:name=".BatallaActivity">
+        </activity>
+        <activity android:name=".ResultadoBatallaActivity">
+        </activity>
     </application>
 
 </manifest>

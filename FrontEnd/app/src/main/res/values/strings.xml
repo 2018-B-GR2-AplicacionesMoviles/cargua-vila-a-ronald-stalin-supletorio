@@ -27,4 +27,9 @@
     <string name="btn_perfil">Perfil</string>
     <string name="btn_regresar">Regresar</string>
     <string name="title_activity_batalla_maps">Map</string>
+    <string name="resultado">Resultado</string>
+    <string name="oro_recolectado">Oro Recolectado</string>
+    <string name="experiencia_recolectado">Experiencia Recolectado</string>
+    <string name="btn_ir_menu">Ir a Menu</string>
+    <string name="btn_batalla">Batalla</string>
 </resources>

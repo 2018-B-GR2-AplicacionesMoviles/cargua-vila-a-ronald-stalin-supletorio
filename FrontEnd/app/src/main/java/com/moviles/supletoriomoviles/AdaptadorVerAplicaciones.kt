@@ -32,8 +32,8 @@ class AdaptadorVerAplicaciones(private val listaAP : ArrayList<AppPorUsuario2>, 
 
         holder.verAplicaciones?.text = "Nombre App: "+item?.nombreApp+
                 " - Experiencia Total: "+item?.experienciaApp+
-                " - Numero de Batallas"+item?.numBatallas+
-                " - Numero de Recolecciones"+ item?.numRecolectas
+                " - Numero de Batallas: "+item?.numBatallas+
+                " - Numero de Recolecciones: "+ item?.numRecolectas
 
     }
 

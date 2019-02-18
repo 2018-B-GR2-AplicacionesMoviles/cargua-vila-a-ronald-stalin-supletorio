@@ -6,6 +6,5 @@
           android:title="Eliminar"/>
     <item android:id="@+id/menu_compartir"
           android:title="Compartir"/>
-    <item android:id="@+id/menu_seleccionar"
-          android:title="Seleccionar App"/>
+
 </menu>

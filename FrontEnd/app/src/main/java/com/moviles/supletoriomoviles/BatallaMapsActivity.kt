@@ -1,6 +1,7 @@
 package com.moviles.supletoriomoviles
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.support.v7.app.AppCompatActivity
@@ -20,6 +21,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import es.dmoral.toasty.Toasty
+import java.util.*
 
 class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(p0: Marker?): Boolean {
@@ -37,6 +39,22 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                 val currentLatLng = LatLng(location.latitude,location.longitude)
                 val dis = distancia(currentLatLng,latLng2!!)
                 Log.i("distancia", "distancia: ${dis}")
+                if (dis < 1){
+                    if (p0?.title.equals("Recolectar")){
+                        var oro = Random().nextInt(100)
+                        var experiecia = Random().nextInt(100)
+                        val intent = Intent(this, RecolectarActivity::class.java)
+                        intent.putExtra("ORO",oro)
+                        intent.putExtra("EXPERIENCIA",experiecia)
+                        startActivity(intent)
+                    }else if (p0?.title.equals("Batalla")){
+                        val intent = Intent(this, BatallaActivity::class.java)
+                        startActivity(intent)
+                    }
+
+                }else{
+                    Toasty.success(this,"Fuera del alcance",Toast.LENGTH_LONG,false).show()
+                }
             }
         }
 
@@ -93,12 +111,13 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
         val punto1 = LatLng(-0.210375, -78.488618)
         val punto2 = LatLng(-0.2090554,-78.4971474)
         val punto3 = LatLng(-0.2126844,-78.4939424)
-        val punto5 = LatLng(-0.2044114,-78.4923674)
+        val punto5 = LatLng(-0.1759692,-78.4958247)
+        val punto6 = LatLng(-0.2132863,-78.4924272)
         nMap.addMarker(MarkerOptions().position(punto1).title("EPN").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto2).title("Recolectar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto3).title("Recolectar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto5).title("Batalla").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
-
+        nMap.addMarker(MarkerOptions().position(punto6).title("Batalla").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
     }
     private fun placeMarker(location: LatLng){
         val markerOptions = MarkerOptions().position(location)

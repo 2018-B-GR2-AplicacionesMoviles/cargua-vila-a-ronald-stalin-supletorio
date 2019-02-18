@@ -11,7 +11,7 @@ import org.json.JSONArray
 
 class DatabaseAPPorUsuario {
     companion object {
-        var ip ="http://192.168.10.103:1337/AplicacionPorUsuario"
+        var ip ="http://192.168.3.103:1337/AplicacionPorUsuario"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 
@@ -67,17 +67,33 @@ class DatabaseAPPorUsuario {
 
             }
             for (i in 0 until aux.length()) {
+                Log.i("http-3", "DatosReturnAP-3: a")
+
                 val id = resp.getJSONObject(i).getInt("id")
-                val idUsuario = resp.getJSONObject(i).getJSONObject("idUsuario").getString("nombres")
-                val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getString("nombre")
+                Log.i("http-3", "DatosReturnAP-3: b")
+
+                val idUsuario = resp.getJSONObject(i).getJSONObject("idUsuario").getString("nombre")
+                Log.i("http-3", "DatosReturnAP-3: ${idUsuario}")
+
+                val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getString("nombres")
+                Log.i("http-3", "DatosReturnAP-3: ${idAplicacion}")
+
                 val experienciaAPP = resp.getJSONObject(i).getDouble("experienciaAPP")
+                Log.i("http-3", "DatosReturnAP-3: e")
+
                 val numBatallas = resp.getJSONObject(i).getInt("numBatallas")
+                Log.i("http-3", "DatosReturnAP-3: f")
+
                 val numRecolectas = resp.getJSONObject(i).getInt("numRecolectas")
-                val appPor = AppPorUsuario2(id,idUsuario,idAplicacion,experienciaAPP,numBatallas,numRecolectas)
+                Log.i("http-3", "DatosReturnAP-3: g")
+
+                val appPor = AppPorUsuario2(id,idAplicacion,idUsuario,experienciaAPP,numBatallas,numRecolectas)
+                Log.i("http-3", "DatosReturnAP-3: h")
+
                 appPorUsuarios.add(appPor)
-                Log.i("http-2", "DatosAP-2: ${appPor}")
+                Log.i("http-3", "DatosAP-3: ${appPor}")
             }
-            Log.i("http-2", "DatosReturnAP: ${appPorUsuarios}")
+            Log.i("http-3", "DatosReturnAP-3: ${appPorUsuarios}")
             return appPorUsuarios
         }
         fun getId(): Int{

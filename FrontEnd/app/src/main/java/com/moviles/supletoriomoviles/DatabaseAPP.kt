@@ -9,7 +9,7 @@ import org.json.JSONArray
 
 class DatabaseAPP() {
     companion object {
-        var ip ="http://192.168.10.103:1337/Aplicacion"
+        var ip ="http://192.168.3.103:1337/Aplicacion"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 

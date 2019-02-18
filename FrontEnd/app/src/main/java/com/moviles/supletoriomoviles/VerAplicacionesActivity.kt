@@ -1,16 +1,11 @@
 package com.moviles.supletoriomoviles
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
-import android.widget.PopupMenu
 import android.widget.Toast
-import kotlinx.android.synthetic.main.registrar_hijos.*
 import java.util.ArrayList
 
 class VerAplicacionesActivity : AppCompatActivity() {
@@ -23,14 +18,12 @@ class VerAplicacionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_aplicaciones)
 
-        var listaVer = this
         so = DatabaseAPPorUsuario.getList()
 
-        lista = findViewById(R.id.reciclerListaRegistrar)
+        lista = findViewById(R.id.reciclerListaVerApp)
         layoutManager = LinearLayoutManager(this)
         adaptador = AdaptadorVerAplicaciones(so!!, object : ClickListener{
             override fun onClick(vista: View, posicion: Int) {
-
                 Toast.makeText(applicationContext, so?.get(posicion)?.nombreApp, Toast.LENGTH_SHORT).show()
             }
         })
