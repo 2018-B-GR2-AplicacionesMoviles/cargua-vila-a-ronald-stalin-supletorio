@@ -11,7 +11,7 @@ import org.json.JSONArray
 
 class DatabaseAPPorUsuario {
     companion object {
-        var ip ="http://172.29.64.166:1337/AplicacionPorUsuario"
+        var ip ="http://172.29.9.77:1337/AplicacionPorUsuario"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 
@@ -115,6 +115,43 @@ class DatabaseAPPorUsuario {
             Log.i("http-3", "DatosReturnAP-3: ${appPorUsuarios}")
             return appPorUsuarios
         }
+
+        fun getListUS(id:Int): ArrayList<AppPorUsuario2>{
+            val appPorUsuarios: ArrayList<AppPorUsuario2> = ArrayList()
+            "${ip}/?idUsuario=${id}".httpGet().responseJson {
+                    request, response, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        val ex = result.getException()
+                        Log.i("http-2", "Error: ${ex}")
+                    }
+                    is Result.Success -> {
+                        val datos = result.get()
+                        aux = datos.array()
+                        Log.i("http-2", "DatosAP: ${aux}")
+                        Log.i("Tipo", "${aux::class.simpleName}")
+                    }
+
+                }
+                resp = result.get().array()
+
+            }
+            for (i in 0 until aux.length()) {
+                Log.i("http-3", "DatosReturnAP-3: a")
+                val id = resp.getJSONObject(i).getInt("id")
+                val idUsuario = resp.getJSONObject(i).getJSONObject("idUsuario").getString("nombre")
+                val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getString("nombres")
+                val experienciaAPP = resp.getJSONObject(i).getDouble("experienciaAPP")
+                val numBatallas = resp.getJSONObject(i).getInt("numBatallas")
+                val numRecolectas = resp.getJSONObject(i).getInt("numRecolectas")
+                val appPor = AppPorUsuario2(id,idAplicacion,idUsuario,experienciaAPP,numBatallas,numRecolectas)
+                appPorUsuarios.add(appPor)
+                Log.i("http-3", "DatosAP-3: ${appPor}")
+            }
+            Log.i("http-3", "DatosReturnAP-3: ${appPorUsuarios}")
+            return appPorUsuarios
+        }
+
         fun getList2(id: Int): Int{
             var appPorUsuarios: Int =0
             "${ip}/?id=${id}".httpGet().responseJson {
@@ -136,7 +173,7 @@ class DatabaseAPPorUsuario {
 
             }
             for (i in 0 until aux.length()) {
-                Log.i("http-3", "DatosReturnAP-3: a")
+                Log.i("http-a", "DatosReturnAP-3: a")
                 val idAplicacion = resp.getJSONObject(i).getJSONObject("idAplicacion").getInt("id")
                 appPorUsuarios = idAplicacion
             }
@@ -164,7 +201,7 @@ class DatabaseAPPorUsuario {
 
             }
             for (i in 0 until aux.length()) {
-                Log.i("http-3", "DatosReturnAP-3: a")
+                Log.i("http-u", "DatosReturnAP-3: a")
                 val idAplicacion = resp.getJSONObject(i).getJSONObject("idUsuario").getInt("id")
                 appPorUsuarios = idAplicacion
             }

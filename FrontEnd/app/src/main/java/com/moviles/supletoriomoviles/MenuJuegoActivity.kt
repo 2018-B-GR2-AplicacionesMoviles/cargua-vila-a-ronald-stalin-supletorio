@@ -13,16 +13,16 @@ class MenuJuegoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_menu_juego)
 
         val idUsua = intent.getIntExtra("IdUsuario",0)
-
+        Log.i("id", idUsua.toString())
         btn_registrar.setOnClickListener {
             this.irARegistrarAplicaciones(idUsua)
         }
 
         btn_ver_app.setOnClickListener {
-            this.irAVerAplicaciones()
+            this.irAVerAplicaciones(idUsua)
         }
         btn_batalla.setOnClickListener {
-            this.irARecolectarOBatalla()
+            this.irARecolectarOBatalla(idUsua)
         }
         btn_info_batalla.setOnClickListener {
             this.irAInfoBatalla()
@@ -38,13 +38,15 @@ class MenuJuegoActivity : AppCompatActivity() {
         startActivity(inten)
     }
 
-    fun irAVerAplicaciones(){
+    fun irAVerAplicaciones(idUsuario: Int){
         val inten = Intent(this, VerAplicacionesActivity::class.java)
+        inten.putExtra("Usuario",idUsuario)
         startActivity(inten)
     }
 
-    fun irARecolectarOBatalla(){
+    fun irARecolectarOBatalla(idUsuario: Int){
         val inten = Intent(this, RecolectarBatallaActivity::class.java)
+        inten.putExtra("Usuario",idUsuario)
         startActivity(inten)
     }
 

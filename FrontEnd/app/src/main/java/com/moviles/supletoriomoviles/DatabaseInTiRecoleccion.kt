@@ -11,7 +11,7 @@ import org.json.JSONArray
 
 class DatabaseInTiRecoleccion {
     companion object {
-        var ip ="http://172.29.64.166:1337/InteraccionesTipoRecoleccion"
+        var ip ="http://172.29.9.77:1337/InteraccionesTipoRecoleccion"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 

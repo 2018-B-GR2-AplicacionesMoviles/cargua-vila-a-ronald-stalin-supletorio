@@ -6,10 +6,9 @@ import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.result.Result
 import org.json.JSONArray
 
-
 class DatabaseAPP() {
     companion object {
-        var ip ="http://172.29.64.166:1337/Aplicacion"
+        var ip ="http://172.29.9.77:1337/Aplicacion"
         var aux = JSONArray()
         lateinit var resp : JSONArray
 

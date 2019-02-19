@@ -5,7 +5,7 @@ import android.os.Parcelable
 
 class InteraccionTipoBatalla(var idInti: Int,
                              var idApp : Int,
-                             var clima : Int,
+                             var clima : Double,
                              var turnosJugados : Int,
                              var recompensaOro : Int,
                              var recompensaExperiencia : Int,
@@ -13,7 +13,7 @@ class InteraccionTipoBatalla(var idInti: Int,
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readInt(),
-        parcel.readInt(),
+        parcel.readDouble(),
         parcel.readInt(),
         parcel.readInt(),
         parcel.readInt(),
@@ -24,7 +24,7 @@ class InteraccionTipoBatalla(var idInti: Int,
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(idInti)
         parcel.writeInt(idApp)
-        parcel.writeInt(clima)
+        parcel.writeDouble(clima)
         parcel.writeInt(turnosJugados)
         parcel.writeInt(recompensaOro)
         parcel.writeInt(recompensaExperiencia)

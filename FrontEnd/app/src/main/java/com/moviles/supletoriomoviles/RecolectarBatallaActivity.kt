@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.PopupMenu
@@ -21,7 +22,12 @@ class RecolectarBatallaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recolectar_batalla)
 
+        val idUsua = intent.getIntExtra("IdUsuario",0)
+        Log.i("id", idUsua.toString())
+
         var listaVer = this
+        Log.i("id", so.toString())
+
         so = DatabaseAPPorUsuario.getList()
         lista = findViewById(R.id.reciclerListaBR)
         layoutManager = LinearLayoutManager(this)

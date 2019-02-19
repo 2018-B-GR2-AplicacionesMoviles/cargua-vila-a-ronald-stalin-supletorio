@@ -25,6 +25,15 @@ import java.util.*
 
 class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
     override fun onMarkerClick(p0: Marker?): Boolean {
+
+        var idApp = intent.getIntExtra("idApp",0)
+        var idPoUsu =  intent.getIntExtra("idAppPorUsuario",0)
+        var idUsu = intent.getIntExtra("idUsuario",0)
+        var oro = Random().nextInt(100)
+        var experiecia = Random().nextInt(100)
+
+
+
         var latLng2: LatLng? = null
         latLng2=p0?.position
         if (ActivityCompat.checkSelfPermission(this,
@@ -42,11 +51,7 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                 if (dis < 1){
                     if (p0?.title.equals("Recolectar")){
 
-                        var idApp = intent.getIntExtra("idApp",0)
-                        var idPoUsu =  intent.getIntExtra("idAppPorUsuario",0)
-                        var idUsu = intent.getIntExtra("idUsuario",0)
-                        var oro = Random().nextInt(100)
-                        var experiecia = Random().nextInt(100)
+
                         var idInTiRe = DatabaseInTiRecoleccion.getId() + 1
                         var interaccionTipoRecoleccion= InteraccionTipoRecoleccion(idInTiRe,idPoUsu,idApp,oro,experiecia)
                         DatabaseInTiRecoleccion.insertarSO(interaccionTipoRecoleccion)
@@ -81,12 +86,10 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
                         intent.putExtra("EXPERIENCIA",experiecia)
                         startActivity(intent)
                     }else if (p0?.title.equals("Batalla")){
-                        var oro = Random().nextInt(100)
-                        var experiecia = Random().nextInt(100)
-                        val intent = Intent(this, BatallaActivity::class.java)
-                        intent.putExtra("ORO",oro)
-                        intent.putExtra("EXPERIENCIA",experiecia)
-                        startActivity(intent)
+
+                        val intent2 = Intent(this, BatallaActivity::class.java)
+
+                        startActivity(intent2)
                     }
 
                 }else{
@@ -150,7 +153,7 @@ class BatallaMapsActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.On
         val punto3 = LatLng(-0.2126844,-78.4939424)
         val punto5 = LatLng(-0.1759692,-78.4958247)
         val punto6 = LatLng(-0.2132863,-78.4924272)
-        nMap.addMarker(MarkerOptions().position(punto1).title("EPN").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
+        nMap.addMarker(MarkerOptions().position(punto1).title("Recolectar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto2).title("Recolectar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto3).title("Recolectar").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)))
         nMap.addMarker(MarkerOptions().position(punto5).title("Batalla").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))

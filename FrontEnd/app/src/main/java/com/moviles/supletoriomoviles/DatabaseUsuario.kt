@@ -15,7 +15,7 @@ import org.json.JSONArray
 
 class DatabaseUsuario(){
     companion object {
-        var ip ="http://172.29.64.166:1337/Usuario"
+        var ip ="http://172.29.9.77:1337/Usuario"
         var aux = JSONArray()
         lateinit var resp : JSONArray
         fun insertarUsuario(usuario: Usuario){
